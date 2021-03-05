@@ -1,0 +1,8 @@
+ /**
+  * @Description : ${className}资方接口调用 分发中心
+  * @Copyright : Sinaif Software Co.,Ltd.Rights Reserved
+  * @Company : 海南新浪爱问普惠科技有限公司
+  * @Author : skysong
+  * @CreateDate ：<#if now??>${now?string('yyyy-MM-dd')}</#if> Time: <#if now??>${now?string('HH:mm:ss')}</#if>
+  * @version : 1.0
+  */

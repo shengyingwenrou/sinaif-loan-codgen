@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.com.mybatis.codgen</groupId>
+    <artifactId>mybatis-core-codgen</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Mybatis :: Core :: Codgen</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.6.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <modules>
+        <module>mybatis-codgen</module>
+        <module>sinaif-loan-codgen-only</module>
+        <module>sinaif-loan-codgen-finance</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.compile.source>1.8</maven.compile.source>
+        <maven.compile.target>1.8</maven.compile.target>
+
+        <!-- spring -->
+        <spirng-cloud.version>Finchley.SR2</spirng-cloud.version>
+        <spring-data-mongodb.version>1.8.6.RELEASE</spring-data-mongodb.version>
+        <feign-jackson.version>8.18.0</feign-jackson.version>
+        <feign-ribbon.version>8.18.0</feign-ribbon.version>
+
+        <!-- util -->
+        <json.version>1.2.52</json.version>
+        <guava.version>20.0</guava.version>
+
+        <!--<mybatis.version>3.2.8</mybatis.version>-->
+        <!--<mybatis-spring.version>1.2.5</mybatis-spring.version>-->
+        <lombok.version>1.16.20</lombok.version>
+        <mybatis.version>3.5.0</mybatis.version>
+        <mybatis-spring.version>2.0.0</mybatis-spring.version>
+        <druid.version>1.1.13</druid.version>
+
+        <!-- fw -->
+        <tomcat-jdbc.version>7.0.72</tomcat-jdbc.version>
+        <sitemesh.version>2.4.2</sitemesh.version>
+        <shiro.version>1.2.6</shiro.version>
+        <cxf.version>2.7.11</cxf.version>
+        <activemq.version>5.7.0</activemq.version>
+        <quartz.version>2.2.1</quartz.version>
+        <ehcache.version>2.6.9</ehcache.version>
+        <spymemcached.version>2.11.5</spymemcached.version>
+        <hibernate-validator.version>6.0.9.Final</hibernate-validator.version>
+        <httpclient.version>4.5.3</httpclient.version>
+        <commons-lang3.version>3.5</commons-lang3.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <commons-io.version>2.5</commons-io.version>
+        <commons-beanutils.version>1.9.2</commons-beanutils.version>
+
+        <log4jdbc.version>1.2</log4jdbc.version>
+        <log4j.version>1.2.17</log4j.version>
+
+        <guava.version>20.0</guava.version>
+        <joda-time.version>2.3</joda-time.version>
+        <dozer.version>5.5.1</dozer.version>
+        <orika.version>1.5.0</orika.version>
+        <!--<freemarker.version>2.3.21</freemarker.version>-->
+        <aspectj.version>1.8.4</aspectj.version>
+        <javassist.version>3.20.0-GA</javassist.version>
+        <poi.version>3.9</poi.version>
+        <cglib.version>3.2.4</cglib.version>
+        <poi.version>3.9</poi.version>
+
+        <fastjson.version>1.2.22</fastjson.version>
+        <netty3.version>3.10.5.Final</netty3.version>
+        <netty4.version>4.1.2.Final</netty4.version>
+
+        <swagger.version>1.5.20</swagger.version>
+        <springfox-swagger.version>2.8.0</springfox-swagger.version>
+
+        <!-- 序列化 -->
+        <protobuf-java.version>2.6.1</protobuf-java.version>
+        <kryo.version>2.24.0</kryo.version>
+        <hessian.version>4.0.38</hessian.version>
+        <fst.version>2.43</fst.version>
+        <snappy-java.version>1.1.2</snappy-java.version>
+        <thrift.version>0.9.3</thrift.version>
+
+
+
+        <!-- 系统稳定性相关 -->
+        <jolokia.version>1.2.3</jolokia.version>
+        <hystrix.version>1.3.16</hystrix.version>
+        <javasimon.version>3.5.2</javasimon.version>
+        <jetty.version>9.4.11.v20180605</jetty.version>
+        <!-- 测试相关 -->
+        <junit.version>4.12</junit.version>
+        <assertj.version>2.6.0</assertj.version>
+        <mockito.version>1.10.19</mockito.version>
+        <powermock.version>1.6.3</powermock.version>
+        <selenium.version>2.42.2</selenium.version>
+        <nosqlunit.version>0.8.0</nosqlunit.version>
+        <h2.version>1.3.176</h2.version>
+
+        <!-- Plugin的属性 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <spring-cloud-starter-feign.version>1.4.6.RELEASE</spring-cloud-starter-feign.version>
+        <aspectj.version>1.8.4</aspectj.version>
+
+
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Cloud依赖 start-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spirng-cloud.version}</version>
+
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-feign</artifactId>
+                <version>${spring-cloud-starter-feign.version}</version>
+            </dependency>
+
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+
+            <!-- tool start -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- tool end-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <!-- api -->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-core</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox-swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox-swagger.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.netflix.feign</groupId>
+                <artifactId>feign-core</artifactId>
+                <version>${feign-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.feign</groupId>
+                <artifactId>feign-jackson</artifactId>
+                <version>${feign-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.feign</groupId>
+                <artifactId>feign-ribbon</artifactId>
+                <version>${feign-jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.netflix.feign</groupId>
+                <artifactId>feign-httpclient</artifactId>
+                <version>${feign-jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.googlecode.log4jdbc</groupId>
+                <artifactId>log4jdbc</artifactId>
+                <version>${log4jdbc.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+
+            <!-- sitemesh -->
+            <dependency>
+                <groupId>opensymphony</groupId>
+                <artifactId>sitemesh</artifactId>
+                <version>${sitemesh.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+
+            <!-- SECURITY begin -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-ehcache</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <!-- SECURITY end -->
+
+
+            <!--  hibernate-validator -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>1.4.7</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.esotericsoftware.kryo</groupId>
+                <artifactId>kryo</artifactId>
+                <version>${kryo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <!-- log4j -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <!-- log4jdbc -->
+            <dependency>
+                <groupId>org.lazyluke</groupId>
+                <artifactId>log4jdbc-remix</artifactId>
+                <version>0.2.7</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <!-- junit -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>ma.glasnost.orika</groupId>
+                <artifactId>orika-core</artifactId>
+                <version>${orika.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>

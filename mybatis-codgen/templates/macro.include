@@ -1,0 +1,14 @@
+<#macro jspEl value>${r"${"}${value}}</#macro>
+<#macro mybatisEl value>${r"#{"}${value}}</#macro>
+
+<#-- 生成构造函数 -->
+<#macro generateConstructor constructor>
+	public ${constructor}() {
+	}
+
+	public ${constructor}(<#list table.columns as column>${column.simpleJavaType} ${column.fieldNameFirstLower}<#if column_has_next>, </#if></#list>) {
+	<#list table.columns as column>
+		this.${column.fieldNameFirstLower} = ${column.fieldNameFirstLower};
+	</#list>	
+	}
+</#macro>
