@@ -1,0 +1,6 @@
+
+/**
+ * @Description : ${className}
+ * @author      : skysong
+ * <#if now??>${now?string('yyyy-MM-dd')}</#if> Time: <#if now??>${now?string('HH:mm:ss')}</#if>
+ */

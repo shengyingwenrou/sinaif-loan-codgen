@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- classPathEntry:数据库的JDBC驱动的jar包地址 -->
+    <classPathEntry location="@driver@"/>
+    <context id="DB2Tables" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="utf-8"/>
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true:是,false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <!--数据库连接的信息:驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/@DBName@"
+                        userId="root"
+                        password="123456"/>
+        <!--
+            默认false:把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer
+            true:把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal
+        -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- targetProject:自动生成代码的位置 -->
+        <javaModelGenerator
+                targetPackage="cn.com.magicwifi.@Component@.@FunctionName@.entity"
+                targetProject="target/temp">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mybatis"
+                         targetProject="target/temp/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!--<javaClientGenerator type="XMLMAPPER"-->
+        <!--targetPackage="cn.com.magicwifi.@Component@.@FunctionName@.dao" targetProject="target/temp">-->
+        <!--<property name="enableSubPackages" value="true" />-->
+        <!--</javaClientGenerator>-->
+        <!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+        <table schema="@DBName@" tableName="@TableName@"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" domainObjectName="Base@EntityBeanName@">
+            <!--<ignoreColumn column="id" />-->
+            <generatedKey column="id" sqlStatement="Mysql"/>
+        </table>
+    </context>
+    <!-- table其他属性： enableCountByExample="false" enableUpdateByExample="false"
+        enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
+        schema即为数据库名, tableName为对应的数据库表, domainObjectName是要生成的实体类, 如果想要mapper配置文件加入sql的where条件查询,
+        可以将enableCountByExample等设为true, 这样就会生成一个对应domainObjectName的Example类, enableCountByExample等设为false时,
+        就不会生成对应的Example类了. 如果table里边不配置property，默认字段都生成为类属性。 <ignoreColumn column="FRED"
+        />//忽略字段 <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />//无论字段是什么类型，生成的类属性都是varchar。 -->
+    <!--
+    java -jar D:/workspace/yuexo-generator/lib/mybatis-generator-core-1.3.2.jar -configfile D:/workspace/yuexo-generator/lib/src/generator.xml -overwrite
+     -->
+</generatorConfiguration>
